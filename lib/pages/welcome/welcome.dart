@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:vrook_course/pages/welcome/widgets/app_on_boarding.dart';
 
+final indexProvider = StateProvider<int>((ref) => 0);
+
 class Welcome extends ConsumerStatefulWidget {
   const Welcome({super.key});
 
@@ -17,12 +19,16 @@ class _WelcomeState extends ConsumerState<Welcome> {
 
   @override
   Widget build(BuildContext context) {
+    final index = ref.watch(indexProvider);
     return Scaffold(
       body: SafeArea(
         child: Stack(
           alignment: Alignment.topCenter,
           children: [
             PageView(
+              onPageChanged: (val) {
+                ref.read(indexProvider.notifier).state = val;
+              },
               controller: pageController,
               children: [
                 // showing 3 pages
@@ -54,8 +60,9 @@ class _WelcomeState extends ConsumerState<Welcome> {
             ),
             // showing dot indicators
             Positioned(
-              bottom: 50,
+              bottom: 30,
               child: DotsIndicator(
+                position: index,
                 dotsCount: 3,
                 decorator: DotsDecorator(
                   size: const Size.square(9.0),
