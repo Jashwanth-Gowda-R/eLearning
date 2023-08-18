@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -19,10 +20,12 @@ class _WelcomeState extends ConsumerState<Welcome> {
     return Scaffold(
       body: SafeArea(
         child: Stack(
+          alignment: Alignment.topCenter,
           children: [
             PageView(
               controller: pageController,
               children: [
+                // showing 3 pages
                 AppOnBoardingPage(
                   imgName: 'assets/images/reading.png',
                   text1: "First See Learning",
@@ -48,6 +51,20 @@ class _WelcomeState extends ConsumerState<Welcome> {
                   pageController: pageController,
                 ),
               ],
+            ),
+            // showing dot indicators
+            Positioned(
+              bottom: 50,
+              child: DotsIndicator(
+                dotsCount: 3,
+                decorator: DotsDecorator(
+                  size: const Size.square(9.0),
+                  activeSize: const Size(18.0, 9.0),
+                  activeShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
