@@ -43,7 +43,9 @@ class AppOnBoardingPage extends StatelessWidget {
             text: text2,
           ),
         ),
-        _nextButton('Next', index, pageController)
+        index < 3
+            ? _nextButton('Next', index, pageController)
+            : _nextButton('Get Started', index, pageController),
       ],
     );
   }
@@ -62,6 +64,11 @@ class AppOnBoardingPage extends StatelessWidget {
             curve: Curves.bounceIn,
           );
         }
+        // else {
+        //   Global.storageService.setBool(STORAGE_DEVICE_FIRST_OPEN_KEY, true);
+        //   Navigator.of(context).pushNamedAndRemoveUntil(
+        //       AppRoutes.Sign_in, (Route<dynamic> route) => false);
+        // }
       },
       child: Container(
         width: 325,
