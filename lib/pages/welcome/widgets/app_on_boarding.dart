@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/text_widgets.dart';
-import 'package:vrook_course/pages/sign_in/sign_in.dart';
 
 class AppOnBoardingPage extends StatelessWidget {
   const AppOnBoardingPage({

@@ -12,7 +12,7 @@ class SignIn extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.primaryBackground,
       appBar: buildAppBar(),
-      body: SafeArea(
+      body: SafeArea( 
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

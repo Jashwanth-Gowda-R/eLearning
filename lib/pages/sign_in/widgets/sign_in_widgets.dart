@@ -6,9 +6,11 @@ AppBar buildAppBar() {
   return AppBar(
     title: text16Normal(text: "Login", color: AppColors.primaryText),
     centerTitle: true,
-    bottom: const PreferredSize(
-      preferredSize: Size.fromHeight(1),
-      child: Divider(),
+    bottom: PreferredSize(
+      preferredSize: const Size.fromHeight(1),
+      child: Divider(
+        color: Colors.grey.withOpacity(0.3),
+      ),
     ),
     elevation: 0,
   );
@@ -51,15 +53,15 @@ Widget _loginButton(String imgPath, Function()? onTap) {
   );
 }
 
-Widget appTextField(
-    {String title = '',
-    required String imgPath,
-    required hintText,
-    Function(String)? onChanged,
-    required bool obsText}) {
+Widget appTextField({
+  String title = '',
+  required String imgPath,
+  required hintText,
+  Function(String)? onChanged,
+  required bool obsText,
+}) {
   return Container(
     padding: const EdgeInsets.only(left: 25, right: 25),
-    // margin: const EdgeInsets.only(bottom: 0, top: 66),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
