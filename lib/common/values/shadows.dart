@@ -28,3 +28,15 @@ BoxDecoration appBoxShadow({
     ],
   );
 }
+
+BoxDecoration appBoxDecorationTextField({
+  Color color = AppColors.primaryBackground,
+  double radius = 15.0,
+  Color borderColor = AppColors.primaryFourElementText,
+}) {
+  return BoxDecoration(
+    color: color,
+    borderRadius: BorderRadius.all(Radius.circular(radius)),
+    border: Border.all(color: borderColor),
+  );
+}

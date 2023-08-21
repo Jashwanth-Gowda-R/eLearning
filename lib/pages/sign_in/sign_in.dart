@@ -13,11 +13,42 @@ class SignIn extends StatelessWidget {
       appBar: buildAppBar(),
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             thirdPartyLogin(),
             Center(
               child: text14Normal(text: 'Or use your email account login'),
-            )
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            appTextField(
+              title: 'Email',
+              hintText: "Enter your email address",
+              imgPath: 'assets/icons/user.png',
+              onChanged: (value) {},
+              obsText: false,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            appTextField(
+              title: 'Password',
+              hintText: "Enter your Password",
+              imgPath: 'assets/icons/lock.png',
+              onChanged: (value) {},
+              obsText: true,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 25),
+              child: textUnderline(text: 'Forgot Password?', onTap: () {}),
+            ),
+            const SizedBox(
+              height: 100,
+            ),
           ],
         ),
       ),

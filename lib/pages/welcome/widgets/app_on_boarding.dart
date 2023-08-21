@@ -66,12 +66,12 @@ class AppOnBoardingPage extends StatelessWidget {
           Navigator.of(context).pushNamedAndRemoveUntil(
               '/signin', (Route<dynamic> route) => false);
 
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: ((context) => const SignIn()),
-            ),
-          );
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: ((context) => const SignIn()),
+          //   ),
+          // );
         }
       },
       child: Container(
