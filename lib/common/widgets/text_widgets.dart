@@ -31,3 +31,17 @@ Widget text16Normal({
   );
 }
 
+Widget text14Normal({
+  required String text,
+  Color color = AppColors.primaryThreeElementText,
+}) {
+  return Text(
+    text,
+    textAlign: TextAlign.center,
+    style: TextStyle(
+      color: color,
+      fontSize: 14,
+      fontWeight: FontWeight.normal,
+    ),
+  );
+}

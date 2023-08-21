@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/text_widgets.dart';
+import 'package:vrook_course/pages/sign_in/sign_in.dart';
 
 class AppOnBoardingPage extends StatelessWidget {
   const AppOnBoardingPage({
@@ -44,17 +45,14 @@ class AppOnBoardingPage extends StatelessWidget {
           ),
         ),
         index < 3
-            ? _nextButton('Next', index, pageController)
-            : _nextButton('Get Started', index, pageController),
+            ? _nextButton('Next', index, pageController, context)
+            : _nextButton('Get Started', index, pageController, context),
       ],
     );
   }
 
-  Widget _nextButton(
-    String title,
-    int index,
-    PageController pageController,
-  ) {
+  Widget _nextButton(String title, int index, PageController pageController,
+      BuildContext context) {
     return GestureDetector(
       onTap: () {
         if (index < 3) {
@@ -63,12 +61,18 @@ class AppOnBoardingPage extends StatelessWidget {
             duration: const Duration(milliseconds: 300),
             curve: Curves.bounceIn,
           );
+        } else {
+          // Global.storageService.setBool(STORAGE_DEVICE_FIRST_OPEN_KEY, true);
+          Navigator.of(context).pushNamedAndRemoveUntil(
+              '/signin', (Route<dynamic> route) => false);
+
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: ((context) => const SignIn()),
+            ),
+          );
         }
-        // else {
-        //   Global.storageService.setBool(STORAGE_DEVICE_FIRST_OPEN_KEY, true);
-        //   Navigator.of(context).pushNamedAndRemoveUntil(
-        //       AppRoutes.Sign_in, (Route<dynamic> route) => false);
-        // }
       },
       child: Container(
         width: 325,
