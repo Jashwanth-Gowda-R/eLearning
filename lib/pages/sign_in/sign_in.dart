@@ -5,7 +5,6 @@ import 'package:vrook_course/common/widgets/app_textfield.dart';
 import 'package:vrook_course/common/widgets/button_widgets.dart';
 import 'package:vrook_course/common/widgets/text_widgets.dart';
 import 'package:vrook_course/pages/sign_in/widgets/sign_in_widgets.dart';
-import 'package:vrook_course/pages/sign_up/sign_up.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -69,11 +68,12 @@ class SignIn extends StatelessWidget {
                 child: appButton(
                   color: AppColors.primaryBackground,
                   onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) {
-                        return const SignUp();
-                      }),
-                    );
+                    // Navigator.of(context).push(
+                    //   MaterialPageRoute(builder: (context) {
+                    //     return const SignUp();
+                    //   }),
+                    // );
+                    Navigator.pushNamed(context, '/signup');
                   },
                   title: 'Register',
                   textcolor: AppColors.primaryText,

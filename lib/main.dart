@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vrook_course/common/style/theme.dart';
 import 'package:vrook_course/pages/sign_in/sign_in.dart';
+import 'package:vrook_course/pages/sign_up/sign_up.dart';
 import 'package:vrook_course/pages/welcome/welcome.dart';
 
 void main() {
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const Welcome(),
-        '/signin': (context) => const SignIn()
+        '/signin': (context) => const SignIn(),
+        '/signup': (context) => const SignUp()
       },
       // home: const Welcome(),
     );
