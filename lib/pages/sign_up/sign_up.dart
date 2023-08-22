@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/app_bar.dart';
 import 'package:vrook_course/common/widgets/app_textfield.dart';
 import 'package:vrook_course/common/widgets/button_widgets.dart';
 import 'package:vrook_course/common/widgets/text_widgets.dart';
+import 'package:vrook_course/pages/sign_up/notifiers/register_notifier.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends ConsumerWidget {
   const SignUp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final registerProvider = ref.watch(registerNotifierProvider);
+
     return Scaffold(
       backgroundColor: AppColors.primaryBackground,
       appBar: buildAppBar(title: "Register"),
@@ -19,7 +23,7 @@ class SignUp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // thirdPartyLogin(),
-               const SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Center(
