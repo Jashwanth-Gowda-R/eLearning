@@ -4,28 +4,41 @@ import 'package:vrook_course/common/widgets/app_bar.dart';
 import 'package:vrook_course/common/widgets/app_textfield.dart';
 import 'package:vrook_course/common/widgets/button_widgets.dart';
 import 'package:vrook_course/common/widgets/text_widgets.dart';
-import 'package:vrook_course/pages/sign_in/widgets/sign_in_widgets.dart';
-import 'package:vrook_course/pages/sign_up/sign_up.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryBackground,
-      appBar: buildAppBar(title: "Login"),
+      appBar: buildAppBar(title: "Register"),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              thirdPartyLogin(),
+              // thirdPartyLogin(),
+               const SizedBox(
+                height: 30,
+              ),
               Center(
-                child: text14Normal(text: 'Or use your email account login'),
+                child: text14Normal(
+                  text: 'Enter Your details below and free sign up',
+                ),
               ),
               const SizedBox(
                 height: 50,
+              ),
+              appTextField(
+                title: 'User name',
+                hintText: "Enter your user name",
+                imgPath: 'assets/icons/user.png',
+                onChanged: (value) {},
+                obsText: false,
+              ),
+              const SizedBox(
+                height: 20,
               ),
               appTextField(
                 title: 'Email',
@@ -47,36 +60,35 @@ class SignIn extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                margin: const EdgeInsets.only(left: 25),
-                child: textUnderline(text: 'Forgot Password?', onTap: () {}),
+              appTextField(
+                title: 'Confirm Password',
+                hintText: "Enter your Confirm Password",
+                imgPath: 'assets/icons/lock.png',
+                onChanged: (value) {},
+                obsText: true,
               ),
               const SizedBox(
-                height: 100,
+                height: 20,
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 25),
+                child: const Text(
+                  'By creating an account you have to agree with our term and conditions',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: AppColors.primaryThreeElementText,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 50,
               ),
               Center(
                 child: appButton(
                   color: AppColors.primaryElement,
                   onTap: () {},
-                  title: 'Log In',
+                  title: 'Sign Up',
                   textcolor: AppColors.primaryBackground,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Center(
-                child: appButton(
-                  color: AppColors.primaryBackground,
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) {
-                        return const SignUp();
-                      }),
-                    );
-                  },
-                  title: 'Register',
-                  textcolor: AppColors.primaryText,
                 ),
               ),
             ],
