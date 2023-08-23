@@ -70,7 +70,7 @@ Widget appTextField({
                     fontWeight: FontWeight.normal,
                     fontSize: 12,
                   ),
-                  onChanged: onChanged,
+                  onChanged: (val) => onChanged!(val),
                   maxLines: 1,
                   autocorrect: false, // 自动纠正
                   obscureText: obsText, // 隐藏输入内容, 密码框

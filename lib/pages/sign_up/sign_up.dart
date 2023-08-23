@@ -6,12 +6,26 @@ import 'package:vrook_course/common/widgets/app_textfield.dart';
 import 'package:vrook_course/common/widgets/button_widgets.dart';
 import 'package:vrook_course/common/widgets/text_widgets.dart';
 import 'package:vrook_course/pages/sign_up/notifiers/register_notifier.dart';
+import 'package:vrook_course/pages/sign_up/sign_up_controller.dart';
 
-class SignUp extends ConsumerWidget {
+class SignUp extends ConsumerStatefulWidget {
   const SignUp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends ConsumerState<SignUp> {
+  late RegisterController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = RegisterController(ref: ref);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final registerProvider = ref.watch(registerNotifierProvider);
 
     return Scaffold(
@@ -38,7 +52,11 @@ class SignUp extends ConsumerWidget {
                 title: 'User name',
                 hintText: "Enter your user name",
                 imgPath: 'assets/icons/user.png',
-                onChanged: (value) {},
+                onChanged: (value) {
+                  ref
+                      .read(registerNotifierProvider.notifier)
+                      .onUserNameChanged(value);
+                },
                 obsText: false,
               ),
               const SizedBox(
@@ -48,7 +66,11 @@ class SignUp extends ConsumerWidget {
                 title: 'Email',
                 hintText: "Enter your email address",
                 imgPath: 'assets/icons/user.png',
-                onChanged: (value) {},
+                onChanged: (value) {
+                  ref
+                      .read(registerNotifierProvider.notifier)
+                      .onEmailChanged(value);
+                },
                 obsText: false,
               ),
               const SizedBox(
@@ -58,7 +80,11 @@ class SignUp extends ConsumerWidget {
                 title: 'Password',
                 hintText: "Enter your Password",
                 imgPath: 'assets/icons/lock.png',
-                onChanged: (value) {},
+                onChanged: (value) {
+                  ref
+                      .read(registerNotifierProvider.notifier)
+                      .onPasswordChanged(value);
+                },
                 obsText: true,
               ),
               const SizedBox(
@@ -68,7 +94,11 @@ class SignUp extends ConsumerWidget {
                 title: 'Confirm Password',
                 hintText: "Enter your Confirm Password",
                 imgPath: 'assets/icons/lock.png',
-                onChanged: (value) {},
+                onChanged: (value) {
+                  ref
+                      .read(registerNotifierProvider.notifier)
+                      .onRePasswordChanged(value);
+                },
                 obsText: true,
               ),
               const SizedBox(
@@ -90,7 +120,9 @@ class SignUp extends ConsumerWidget {
               Center(
                 child: appButton(
                   color: AppColors.primaryElement,
-                  onTap: () {},
+                  onTap: () {
+                    _controller.handleEmailRegister();
+                  },
                   title: 'Sign Up',
                   textcolor: AppColors.primaryBackground,
                 ),
