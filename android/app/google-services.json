@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "377443910819",
+    "project_id": "riverpod-flutter-course-sell",
+    "storage_bucket": "riverpod-flutter-course-sell.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377443910819:android:bc2e6ac5e200bf6b512b16",
+        "android_client_info": {
+          "package_name": "com.example.vrook_course"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377443910819-pfqf05aduvhrblnjk5cvu743lec80ims.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3Hynb6Fnc7j_TR0SdKTha0dk3aAdXAD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377443910819-pfqf05aduvhrblnjk5cvu743lec80ims.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
