@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:vrook_course/common/global_loader/global_loader.dart';
 import 'package:vrook_course/common/widgets/toast.dart';
 import 'package:vrook_course/pages/sign_up/notifiers/register_notifier.dart';
 
@@ -33,33 +35,40 @@ class RegisterController {
       return;
     }
     FocusManager.instance.primaryFocus?.unfocus();
-    // try {
-    //   final credential =
-    //       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-    //     email: emailAddress,
-    //     password: password,
-    //   );
-    //   print(credential);
-    //   if (credential != null) {
-    //     await credential.user?.sendEmailVerification();
-    //     await credential.user?.updateDisplayName(UserName);
-    //     String photoURL = "${SERVER_API_URL}uploads/default.png";
-    //     await credential.user?.updatePhotoURL(photoURL);
-    //     toastInfo(
-    //         msg:
-    //             "An email has been sent to your registered email. To activate your account, please open the link from the email.");
-    //     Navigator.of(ref.context).pop();
-    //   }
-    // } on FirebaseAuthException catch (e) {
-    //   if (e.code == 'weak-password') {
-    //     print('The password provided is too weak.');
-    //     toastInfo(msg: "The password provided is too weak.");
-    //   } else if (e.code == 'email-already-in-use') {
-    //     print('The account already exists for that email.');
-    //     toastInfo(msg: "The account already exists for that email.");
-    //   }
-    // } catch (e) {
-    //   print(e);
-    // }
+
+    var context = Navigator.of(ref.context);
+
+    try {
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailAddress,
+        password: password,
+      );
+      debugPrint("$credential");
+
+      if (credential.user != null) {
+        ref.read(appLoaderProvider.notifier).setLoaderValue(true);
+        await credential.user?.sendEmailVerification();
+        await credential.user?.updateDisplayName(UserName);
+        // String photoURL = "${SERVER_API_URL}uploads/default.png";
+        // await credential.user?.updatePhotoURL(photoURL);
+        toastInfo(
+            msg:
+                "An email has been sent to your registered email. To activate your account, please open the link from the email.");
+        context.pop();
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        debugPrint('The password provided is too weak.');
+        toastInfo(msg: "The password provided is too weak.");
+      } else if (e.code == 'email-already-in-use') {
+        debugPrint('The account already exists for that email.');
+        toastInfo(msg: "The account already exists for that email.");
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+      toastInfo(msg: e.toString());
+    }
+    ref.read(appLoaderProvider.notifier).setLoaderValue(false);
   }
 }
