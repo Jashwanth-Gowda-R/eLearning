@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vrook_course/common/values/values.dart';
-import 'package:vrook_course/common/widgets/text_widgets.dart';
-
-
 
 Widget thirdPartyLogin() {
   return Container(
@@ -40,5 +36,3 @@ Widget _loginButton(String imgPath, Function()? onTap) {
     ),
   );
 }
-
-
