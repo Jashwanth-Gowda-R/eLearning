@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/app_bar.dart';
 import 'package:vrook_course/common/widgets/app_textfield.dart';
 import 'package:vrook_course/common/widgets/button_widgets.dart';
 import 'package:vrook_course/common/widgets/text_widgets.dart';
+import 'package:vrook_course/pages/sign_in/notifier/login_notifier.dart';
+import 'package:vrook_course/pages/sign_in/sign_in_controller.dart';
 import 'package:vrook_course/pages/sign_in/widgets/sign_in_widgets.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends ConsumerStatefulWidget {
   const SignIn({super.key});
+
+  @override
+  ConsumerState<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends ConsumerState<SignIn> {
+  late LoginController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = LoginController(ref: ref);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +46,11 @@ class SignIn extends StatelessWidget {
                 title: 'Email',
                 hintText: "Enter your email address",
                 imgPath: 'assets/icons/user.png',
-                onChanged: (value) {},
+                onChanged: (value) {
+                  ref
+                      .read(signInNotifierProvider.notifier)
+                      .onEmailChanged(value);
+                },
                 obsText: false,
               ),
               const SizedBox(
@@ -40,7 +60,11 @@ class SignIn extends StatelessWidget {
                 title: 'Password',
                 hintText: "Enter your Password",
                 imgPath: 'assets/icons/lock.png',
-                onChanged: (value) {},
+                onChanged: (value) {
+                  ref
+                      .read(signInNotifierProvider.notifier)
+                      .onPasswordChanged(value);
+                },
                 obsText: true,
               ),
               const SizedBox(
@@ -56,7 +80,9 @@ class SignIn extends StatelessWidget {
               Center(
                 child: appButton(
                   color: AppColors.primaryElement,
-                  onTap: () {},
+                  onTap: () {
+                    _controller.handleEmailLogin();
+                  },
                   title: 'Log In',
                   textcolor: AppColors.primaryBackground,
                 ),
