@@ -87,7 +87,7 @@ class LoginController {
   }
 }
 
-asyncPostAllData(LoginRequestEntity loginRequestEntity) async {
+void asyncPostAllData(LoginRequestEntity loginRequestEntity) async {
   // EasyLoading.show(
   //   indicator: const CircularProgressIndicator(),
   //   maskType: EasyLoadingMaskType.clear,
