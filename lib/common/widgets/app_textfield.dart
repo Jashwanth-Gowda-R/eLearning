@@ -8,6 +8,7 @@ Widget appTextField({
   required hintText,
   Function(String)? onChanged,
   required bool obsText,
+  TextEditingController? controller,
 }) {
   return Container(
     padding: const EdgeInsets.only(left: 25, right: 25),
@@ -36,6 +37,7 @@ Widget appTextField({
                 width: 280,
                 height: 50,
                 child: TextField(
+                  controller: controller,
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     hintText: hintText,

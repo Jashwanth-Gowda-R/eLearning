@@ -12,10 +12,16 @@ class LoginController {
     required this.ref,
   });
 
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   handleEmailLogin() async {
     final state = ref.read(signInNotifierProvider);
     String emailAddress = state.email;
     String password = state.password;
+
+    emailController.text = emailAddress;
+    passwordController.text = password;
 
     debugPrint('name and password : $emailAddress and $password');
 
@@ -60,7 +66,7 @@ class LoginController {
         loginPageListRequestEntity.open_id = id;
         loginPageListRequestEntity.type = 1;
         asyncPostAllData(loginPageListRequestEntity);
-        
+
         debugPrint('user logged in');
       } else {
         toastInfo(msg: 'login error');
