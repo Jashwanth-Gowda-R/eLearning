@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:vrook_course/common/global_loader/global_loader.dart';
 import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/app_bar.dart';
 import 'package:vrook_course/common/widgets/app_textfield.dart';
@@ -27,88 +28,98 @@ class _SignInState extends ConsumerState<SignIn> {
 
   @override
   Widget build(BuildContext context) {
+    final loader = ref.watch(appLoaderProvider);
     return Scaffold(
       backgroundColor: AppColors.primaryBackground,
       appBar: buildAppBar(title: "Login"),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              thirdPartyLogin(),
-              Center(
-                child: text14Normal(text: 'Or use your email account login'),
+      body: loader
+          ? const Center(
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.blue,
+                color: AppColors.primaryElement,
               ),
-              const SizedBox(
-                height: 50,
-              ),
-              appTextField(
-                title: 'Email',
-                hintText: "Enter your email address",
-                imgPath: 'assets/icons/user.png',
-                onChanged: (value) {
-                  ref
-                      .read(signInNotifierProvider.notifier)
-                      .onEmailChanged(value);
-                },
-                obsText: false,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              appTextField(
-                title: 'Password',
-                hintText: "Enter your Password",
-                imgPath: 'assets/icons/lock.png',
-                onChanged: (value) {
-                  ref
-                      .read(signInNotifierProvider.notifier)
-                      .onPasswordChanged(value);
-                },
-                obsText: true,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                margin: const EdgeInsets.only(left: 25),
-                child: textUnderline(text: 'Forgot Password?', onTap: () {}),
-              ),
-              const SizedBox(
-                height: 100,
-              ),
-              Center(
-                child: appButton(
-                  color: AppColors.primaryElement,
-                  onTap: () {
-                    _controller.handleEmailLogin();
-                  },
-                  title: 'Log In',
-                  textcolor: AppColors.primaryBackground,
+            )
+          : SafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    thirdPartyLogin(),
+                    Center(
+                      child:
+                          text14Normal(text: 'Or use your email account login'),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    appTextField(
+                      title: 'Email',
+                      hintText: "Enter your email address",
+                      imgPath: 'assets/icons/user.png',
+                      onChanged: (value) {
+                        ref
+                            .read(signInNotifierProvider.notifier)
+                            .onEmailChanged(value);
+                      },
+                      obsText: false,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    appTextField(
+                      title: 'Password',
+                      hintText: "Enter your Password",
+                      imgPath: 'assets/icons/lock.png',
+                      onChanged: (value) {
+                        ref
+                            .read(signInNotifierProvider.notifier)
+                            .onPasswordChanged(value);
+                      },
+                      obsText: true,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(left: 25),
+                      child:
+                          textUnderline(text: 'Forgot Password?', onTap: () {}),
+                    ),
+                    const SizedBox(
+                      height: 100,
+                    ),
+                    Center(
+                      child: appButton(
+                        color: AppColors.primaryElement,
+                        onTap: () {
+                          _controller.handleEmailLogin();
+                        },
+                        title: 'Log In',
+                        textcolor: AppColors.primaryBackground,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Center(
+                      child: appButton(
+                        color: AppColors.primaryBackground,
+                        onTap: () {
+                          // Navigator.of(context).push(
+                          //   MaterialPageRoute(builder: (context) {
+                          //     return const SignUp();
+                          //   }),
+                          // );
+                          Navigator.pushNamed(context, '/signup');
+                        },
+                        title: 'Register',
+                        textcolor: AppColors.primaryText,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              Center(
-                child: appButton(
-                  color: AppColors.primaryBackground,
-                  onTap: () {
-                    // Navigator.of(context).push(
-                    //   MaterialPageRoute(builder: (context) {
-                    //     return const SignUp();
-                    //   }),
-                    // );
-                    Navigator.pushNamed(context, '/signup');
-                  },
-                  title: 'Register',
-                  textcolor: AppColors.primaryText,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
 }

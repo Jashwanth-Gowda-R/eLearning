@@ -29,6 +29,8 @@ class LoginController {
     }
     FocusManager.instance.primaryFocus?.unfocus();
 
+    ref.read(appLoaderProvider.notifier).setLoaderValue(true);
+
     try {
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailAddress,
@@ -57,17 +59,19 @@ class LoginController {
         loginPageListRequestEntity.email = email;
         loginPageListRequestEntity.open_id = id;
         loginPageListRequestEntity.type = 1;
-        // asyncPostAllData(loginPageListRequestEntity);
+        asyncPostAllData(loginPageListRequestEntity);
+        
+        debugPrint('user logged in');
       } else {
         toastInfo(msg: 'login error');
       }
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        debugPrint('The password provided is too weak.');
-        toastInfo(msg: "The password provided is too weak.");
-      } else if (e.code == 'email-already-in-use') {
-        debugPrint('The account already exists for that email.');
-        toastInfo(msg: "The account already exists for that email.");
+      if (e.code == 'user-not-found') {
+        debugPrint('No user found for that email.');
+        toastInfo(msg: "No user found for that email.");
+      } else if (e.code == 'wrong-password') {
+        debugPrint('Wrong password provided for that user.');
+        toastInfo(msg: "Wrong password provided for that user.");
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -75,4 +79,30 @@ class LoginController {
     }
     ref.read(appLoaderProvider.notifier).setLoaderValue(false);
   }
+}
+
+asyncPostAllData(LoginRequestEntity loginRequestEntity) async {
+  // EasyLoading.show(
+  //   indicator: const CircularProgressIndicator(),
+  //   maskType: EasyLoadingMaskType.clear,
+  //   dismissOnTap: true,
+  // );
+  // var result = await UserAPI.Login(params: loginRequestEntity);
+  // print(result);
+  // if (result.code == 0) {
+  //   try {
+  //     Global.storageService
+  //         .setString(STORAGE_USER_PROFILE_KEY, jsonEncode(result.data!));
+  //     Global.storageService
+  //         .setString(STORAGE_USER_TOKEN_KEY, result.data!.access_token!);
+  //     EasyLoading.dismiss();
+  //     Navigator.of(ref.context).pushNamedAndRemoveUntil(
+  //         AppRoutes.Application, (Route<dynamic> route) => false);
+  //   } catch (e) {
+  //     Logger.write("$e");
+  //   }
+  // } else {
+  //   EasyLoading.dismiss();
+  //   toastInfo(msg: 'internet error');
+  // }
 }
