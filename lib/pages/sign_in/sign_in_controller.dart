@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vrook_course/common/entities/entities.dart';
 import 'package:vrook_course/common/global_loader/global_loader.dart';
+import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/toast.dart';
+import 'package:vrook_course/global.dart';
 import 'package:vrook_course/pages/sign_in/notifier/login_notifier.dart';
 
 class LoginController {
@@ -46,10 +48,12 @@ class LoginController {
 
       if (!credential.user!.emailVerified) {
         toastInfo(msg: "You must verify your email first.");
+        return;
       }
 
       if (credential.user == null) {
         toastInfo(msg: "User not found!!!");
+        return;
       }
 
       var user = credential.user;
@@ -85,30 +89,42 @@ class LoginController {
     }
     ref.read(appLoaderProvider.notifier).setLoaderValue(false);
   }
-}
 
-void asyncPostAllData(LoginRequestEntity loginRequestEntity) async {
-  // EasyLoading.show(
-  //   indicator: const CircularProgressIndicator(),
-  //   maskType: EasyLoadingMaskType.clear,
-  //   dismissOnTap: true,
-  // );
-  // var result = await UserAPI.Login(params: loginRequestEntity);
-  // print(result);
-  // if (result.code == 0) {
-  //   try {
-  //     Global.storageService
-  //         .setString(STORAGE_USER_PROFILE_KEY, jsonEncode(result.data!));
-  //     Global.storageService
-  //         .setString(STORAGE_USER_TOKEN_KEY, result.data!.access_token!);
-  //     EasyLoading.dismiss();
-  //     Navigator.of(ref.context).pushNamedAndRemoveUntil(
-  //         AppRoutes.Application, (Route<dynamic> route) => false);
-  //   } catch (e) {
-  //     Logger.write("$e");
-  //   }
-  // } else {
-  //   EasyLoading.dismiss();
-  //   toastInfo(msg: 'internet error');
-  // }
+  void asyncPostAllData(LoginRequestEntity loginRequestEntity) async {
+    try {
+      Global.storageService.setString(STORAGE_USER_PROFILE_KEY, '123');
+      Global.storageService.setString(STORAGE_USER_TOKEN_KEY, '123456');
+
+      Navigator.of(ref.context).pushNamedAndRemoveUntil(
+          '/application', (Route<dynamic> route) => false);
+    } catch (e) {
+      // Logger.write("$e");
+      debugPrint(e.toString());
+      toastInfo(msg: e.toString());
+    }
+
+    // EasyLoading.show(
+    //   indicator: const CircularProgressIndicator(),
+    //   maskType: EasyLoadingMaskType.clear,
+    //   dismissOnTap: true,
+    // );
+    // var result = await UserAPI.Login(params: loginRequestEntity);
+    // print(result);
+    // if (result.code == 0) {
+    // try {
+    //   Global.storageService
+    //       .setString(STORAGE_USER_PROFILE_KEY, jsonEncode(result.data!));
+    //   Global.storageService
+    //       .setString(STORAGE_USER_TOKEN_KEY, result.data!.access_token!);
+    //   EasyLoading.dismiss();
+    //   Navigator.of(ref.context).pushNamedAndRemoveUntil(
+    //       AppRoutes.Application, (Route<dynamic> route) => false);
+    // } catch (e) {
+    //   Logger.write("$e");
+    // }
+    // } else {
+    //   EasyLoading.dismiss();
+    //   toastInfo(msg: 'internet error');
+    // }
+  }
 }
