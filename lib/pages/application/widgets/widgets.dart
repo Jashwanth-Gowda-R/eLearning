@@ -104,3 +104,54 @@ var bottomTabs = <BottomNavigationBarItem>[
     backgroundColor: AppColors.primaryBackground,
   ),
 ];
+
+// Widget appScreens(PageController pageController) {
+//   return PageView(
+//     physics: const NeverScrollableScrollPhysics(),
+//     controller: pageController,
+//     onPageChanged: (value) {},
+//     children: const <Widget>[
+//       Home(),
+//       Search(),
+//       Course(),
+//       Message(),
+//       Profile(),
+//     ],
+//   );
+// }
+
+Widget appScreens( int index) {
+  List<Widget> screens = [
+    Center(
+      child: Image.asset(
+        "assets/icons/home.png",
+        color: AppColors.primaryElement,
+      ),
+    ),
+    Center(
+      child: Image.asset(
+        "assets/icons/search2.png",
+        color: AppColors.primaryElement,
+      ),
+    ),
+    Center(
+      child: Image.asset(
+        "assets/icons/play-circle1.png",
+        color: AppColors.primaryElement,
+      ),
+    ),
+    Center(
+      child: Image.asset(
+        "assets/icons/message-circle.png",
+        color: AppColors.primaryElement,
+      ),
+    ),
+    Center(
+      child: Image.asset(
+        "assets/icons/person2.png",
+        color: AppColors.primaryElement,
+      ),
+    ),
+  ];
+  return screens[index];
+}

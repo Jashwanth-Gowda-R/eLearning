@@ -14,12 +14,13 @@ class Application extends ConsumerStatefulWidget {
 }
 
 class _ApplicationState extends ConsumerState<Application> {
+  PageController pageController = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     var index = ref.watch(applicationNavIndexProvider);
     return Scaffold(
       appBar: buildAppBar(title: "Home Page"),
-      body: Container(),
+      body: appScreens(index),
       bottomNavigationBar: Container(
         width: 375.w,
         height: 58.h,
