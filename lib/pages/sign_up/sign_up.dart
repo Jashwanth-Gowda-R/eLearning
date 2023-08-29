@@ -27,6 +27,7 @@ class _SignUpState extends ConsumerState<SignUp> {
 
   @override
   Widget build(BuildContext context) {
+    // final registerProvider = ref.watch(registerNotifierProvider);
     final loader = ref.watch(appLoaderProvider);
 
     return Scaffold(
@@ -61,9 +62,12 @@ class _SignUpState extends ConsumerState<SignUp> {
                       hintText: "Enter your user name",
                       imgPath: 'assets/icons/user.png',
                       onChanged: (value) {
+                        // debugPrint(value);
                         ref
                             .read(registerNotifierProvider.notifier)
                             .onUserNameChanged(value);
+
+                        debugPrint(value);
                       },
                       obsText: false,
                     ),
@@ -78,6 +82,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         ref
                             .read(registerNotifierProvider.notifier)
                             .onEmailChanged(value);
+                        debugPrint(value);
                       },
                       obsText: false,
                     ),

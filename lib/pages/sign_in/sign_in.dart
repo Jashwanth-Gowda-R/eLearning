@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vrook_course/common/global_loader/global_loader.dart';
+import 'package:vrook_course/common/routes/app_route_names.dart';
 import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/app_bar.dart';
 import 'package:vrook_course/common/widgets/app_textfield.dart';
@@ -112,7 +113,7 @@ class _SignInState extends ConsumerState<SignIn> {
                           //     return const SignUp();
                           //   }),
                           // );
-                          Navigator.pushNamed(context, '/signup');
+                          Navigator.pushNamed(context, AppRoutes.Register);
                         },
                         title: 'Register',
                         textcolor: AppColors.primaryText,

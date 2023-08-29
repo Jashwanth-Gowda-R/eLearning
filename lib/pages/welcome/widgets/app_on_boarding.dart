@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:vrook_course/common/routes/app_route_names.dart';
 import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/text_widgets.dart';
+import 'package:vrook_course/global.dart';
 
 class AppOnBoardingPage extends StatelessWidget {
   const AppOnBoardingPage({
@@ -61,9 +63,9 @@ class AppOnBoardingPage extends StatelessWidget {
             curve: Curves.bounceIn,
           );
         } else {
-          // Global.storageService.setBool(STORAGE_DEVICE_FIRST_OPEN_KEY, true);
+          Global.storageService.setBool(STORAGE_DEVICE_FIRST_OPEN_KEY, true);
           Navigator.of(context).pushNamedAndRemoveUntil(
-              '/signin', (Route<dynamic> route) => false);
+              AppRoutes.Sign_in, (Route<dynamic> route) => false);
 
           // Navigator.push(
           //   context,

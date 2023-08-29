@@ -18,6 +18,9 @@ class RegisterController {
     String password = state.password;
     String repassword = state.repassword;
 
+    print(
+        'handle - name - $UserName,email - $emailAddress,passs - $password,$repassword');
+
     if (UserName.isEmpty) {
       toastInfo(msg: "UserName not empty!");
       return;

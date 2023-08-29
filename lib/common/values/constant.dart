@@ -1,4 +1,6 @@
 // baidu yapi
+// ignore_for_file: constant_identifier_names
+
 const SERVER_API_URL = 'https://ulearning.codemain.top/';
 
 /// 用户 - 配置信息

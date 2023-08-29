@@ -48,11 +48,13 @@ class LoginController {
 
       if (!credential.user!.emailVerified) {
         toastInfo(msg: "You must verify your email first.");
+        ref.read(appLoaderProvider.notifier).setLoaderValue(false);
         return;
       }
 
       if (credential.user == null) {
         toastInfo(msg: "User not found!!!");
+        ref.read(appLoaderProvider.notifier).setLoaderValue(false);
         return;
       }
 
