@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/app_bar.dart';
+import 'package:vrook_course/pages/application/widgets/widgets.dart';
 
 class Application extends ConsumerStatefulWidget {
   const Application({super.key});
@@ -15,6 +18,27 @@ class _ApplicationState extends ConsumerState<Application> {
     return Scaffold(
       appBar: buildAppBar(title: "Home Page"),
       body: Container(),
+      bottomNavigationBar: Container(
+        width: 375.w,
+        height: 58.h,
+        decoration: appBoxShadowWithRadius(),
+        child: BottomNavigationBar(
+          items: bottomTabs,
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
+          
+          onTap: (value) {
+            // ref
+            //     .read(applicationProvider.notifier)
+            //     .onPageChanged(PageChanged(value));
+            // pageController.jumpToPage(value);
+          },
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          unselectedItemColor: AppColors.primaryFourElementText,
+          selectedItemColor: AppColors.primaryElement,
+        ),
+      ),
     );
   }
 }

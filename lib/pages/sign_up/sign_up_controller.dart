@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,7 +20,7 @@ class RegisterController {
     String password = state.password;
     String repassword = state.repassword;
 
-    print(
+    debugPrint(
         'handle - name - $UserName,email - $emailAddress,passs - $password,$repassword');
 
     if (UserName.isEmpty) {
