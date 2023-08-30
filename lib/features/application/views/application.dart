@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/app_bar.dart';
 import 'package:vrook_course/features/application/provider/application_nav_notifier.dart';
-import 'package:vrook_course/pages/application/views/widgets/widgets.dart';
+import 'package:vrook_course/features/application/views/widgets/widgets.dart';
 
 class Application extends ConsumerStatefulWidget {
   const Application({super.key});
