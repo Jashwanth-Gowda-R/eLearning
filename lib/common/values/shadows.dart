@@ -33,7 +33,7 @@ BoxDecoration appBoxShadow({
 BoxDecoration appBoxDecorationTextField({
   Color color = AppColors.primaryBackground,
   double radius = 15.0,
-  Color borderColor = AppColors.primaryFourElementText,
+  Color borderColor = AppColors.primaryFourthElementText,
 }) {
   return BoxDecoration(
     color: color,

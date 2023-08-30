@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vrook_course/common/utils/image_res.dart';
 import 'package:vrook_course/common/values/values.dart';
 
 var bottomTabs = <BottomNavigationBarItem>[
@@ -8,19 +9,19 @@ var bottomTabs = <BottomNavigationBarItem>[
       width: 15.w,
       height: 15.w,
       child: Image.asset(
-        "assets/icons/home.png",
-        color: AppColors.primaryFourElementText,
+        ImageRes.home,
+        color: AppColors.primaryFourthElementText,
       ),
     ),
     activeIcon: SizedBox(
       width: 15.w,
       height: 15.w,
       child: Image.asset(
-        "assets/icons/home.png",
+        ImageRes.home,
         color: AppColors.primaryElement,
       ),
     ),
-    label: "home",
+    label: "Home",
     backgroundColor: AppColors.primaryBackground,
   ),
   BottomNavigationBarItem(
@@ -28,19 +29,19 @@ var bottomTabs = <BottomNavigationBarItem>[
       width: 15.w,
       height: 15.w,
       child: Image.asset(
-        "assets/icons/search2.png",
-        color: AppColors.primaryFourElementText,
+        ImageRes.search,
+        color: AppColors.primaryFourthElementText,
       ),
     ),
     activeIcon: SizedBox(
       width: 15.w,
       height: 15.w,
       child: Image.asset(
-        "assets/icons/search2.png",
+        ImageRes.search,
         color: AppColors.primaryElement,
       ),
     ),
-    label: "search",
+    label: "Search",
     backgroundColor: AppColors.primaryBackground,
   ),
   BottomNavigationBarItem(
@@ -48,19 +49,19 @@ var bottomTabs = <BottomNavigationBarItem>[
       width: 15.w,
       height: 15.w,
       child: Image.asset(
-        "assets/icons/play-circle1.png",
-        color: AppColors.primaryFourElementText,
+        ImageRes.play,
+        color: AppColors.primaryFourthElementText,
       ),
     ),
     activeIcon: SizedBox(
       width: 15.w,
       height: 15.w,
       child: Image.asset(
-        "assets/icons/play-circle1.png",
+        ImageRes.play,
         color: AppColors.primaryElement,
       ),
     ),
-    label: "play",
+    label: "Play",
     backgroundColor: AppColors.primaryBackground,
   ),
   BottomNavigationBarItem(
@@ -68,19 +69,19 @@ var bottomTabs = <BottomNavigationBarItem>[
       width: 15.w,
       height: 15.w,
       child: Image.asset(
-        "assets/icons/message-circle.png",
-        color: AppColors.primaryFourElementText,
+        ImageRes.message,
+        color: AppColors.primaryFourthElementText,
       ),
     ),
     activeIcon: SizedBox(
       width: 15.w,
       height: 15.w,
       child: Image.asset(
-        "assets/icons/message-circle.png",
+        ImageRes.message,
         color: AppColors.primaryElement,
       ),
     ),
-    label: "message",
+    label: "Message",
     backgroundColor: AppColors.primaryBackground,
   ),
   BottomNavigationBarItem(
@@ -88,19 +89,19 @@ var bottomTabs = <BottomNavigationBarItem>[
       width: 15.w,
       height: 15.w,
       child: Image.asset(
-        "assets/icons/person2.png",
-        color: AppColors.primaryFourElementText,
+        ImageRes.profile,
+        color: AppColors.primaryFourthElementText,
       ),
     ),
     activeIcon: SizedBox(
       width: 15.w,
       height: 15.w,
       child: Image.asset(
-        "assets/icons/person2.png",
+        ImageRes.profile,
         color: AppColors.primaryElement,
       ),
     ),
-    label: "person",
+    label: "Profile",
     backgroundColor: AppColors.primaryBackground,
   ),
 ];
@@ -120,35 +121,35 @@ var bottomTabs = <BottomNavigationBarItem>[
 //   );
 // }
 
-Widget appScreens( int index) {
+Widget appScreens(int index) {
   List<Widget> screens = [
     Center(
       child: Image.asset(
-        "assets/icons/home.png",
+        ImageRes.home,
         color: AppColors.primaryElement,
       ),
     ),
     Center(
       child: Image.asset(
-        "assets/icons/search2.png",
+        ImageRes.search,
         color: AppColors.primaryElement,
       ),
     ),
     Center(
       child: Image.asset(
-        "assets/icons/play-circle1.png",
+        ImageRes.play,
         color: AppColors.primaryElement,
       ),
     ),
     Center(
       child: Image.asset(
-        "assets/icons/message-circle.png",
+        ImageRes.message,
         color: AppColors.primaryElement,
       ),
     ),
     Center(
       child: Image.asset(
-        "assets/icons/person2.png",
+        ImageRes.profile,
         color: AppColors.primaryElement,
       ),
     ),

@@ -38,7 +38,7 @@ class AppTheme {
     ),
     tabBarTheme: const TabBarTheme(
       indicatorSize: TabBarIndicatorSize.label,
-      labelColor: AppColors.primaryThreeElementText,
+      labelColor: AppColors.primaryThirdElementText,
       unselectedLabelColor: AppColors.primaryElement,
     ),
     colorScheme: ColorScheme.fromSwatch()

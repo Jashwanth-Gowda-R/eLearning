@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:vrook_course/common/routes/app_route_names.dart';
+import 'package:vrook_course/features/application/views/application.dart';
+import 'package:vrook_course/features/sign_in/views/sign_in.dart';
+import 'package:vrook_course/features/sign_up/views/sign_up.dart';
+import 'package:vrook_course/features/welcome/views/welcome.dart';
 import 'package:vrook_course/global.dart';
-import 'package:vrook_course/pages/application/application.dart';
-import 'package:vrook_course/pages/sign_in/sign_in.dart';
-import 'package:vrook_course/pages/sign_up/sign_up.dart';
-import 'package:vrook_course/pages/welcome/welcome.dart';
 
 class AppPages {
   // static final RouteObserver<Route> observer = RouteObservers();

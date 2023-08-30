@@ -33,7 +33,7 @@ Widget text16Normal({
 
 Widget text14Normal({
   required String text,
-  Color color = AppColors.primaryThreeElementText,
+  Color color = AppColors.primaryThirdElementText,
 }) {
   return Text(
     text,

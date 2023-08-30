@@ -2,8 +2,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:vrook_course/pages/welcome/widgets/app_on_boarding.dart';
+import 'package:vrook_course/features/welcome/views/widgets/app_on_boarding.dart';
 
 final indexProvider = StateProvider<int>((ref) => 0);
 

@@ -6,8 +6,8 @@ import 'package:vrook_course/common/widgets/app_bar.dart';
 import 'package:vrook_course/common/widgets/app_textfield.dart';
 import 'package:vrook_course/common/widgets/button_widgets.dart';
 import 'package:vrook_course/common/widgets/text_widgets.dart';
-import 'package:vrook_course/pages/sign_up/notifiers/register_notifier.dart';
-import 'package:vrook_course/pages/sign_up/sign_up_controller.dart';
+import 'package:vrook_course/features/sign_up/controllers/sign_up_controller.dart';
+import 'package:vrook_course/pages/sign_up/provider/register_notifier.dart';
 
 class SignUp extends ConsumerStatefulWidget {
   const SignUp({super.key});
@@ -123,7 +123,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         'By creating an account you have to agree with our term and conditions',
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.primaryThreeElementText,
+                          color: AppColors.primaryThirdElementText,
                         ),
                       ),
                     ),

@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:vrook_course/pages/sign_in/notifier/login_state.dart';
+import 'package:vrook_course/features/sign_in/provider/login_state.dart';
+
 
 class LoginNotifier extends StateNotifier<SignInState> {
   LoginNotifier() : super(const SignInState());

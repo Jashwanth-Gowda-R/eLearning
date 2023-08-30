@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:vrook_course/pages/sign_up/notifiers/register_state.dart';
+import 'package:vrook_course/features/sign_up/provider/register_state.dart';
+
 
 // part 'register_notifier.g.dart';
 

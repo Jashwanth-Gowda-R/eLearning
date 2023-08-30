@@ -15,7 +15,10 @@ Widget appButton({
       width: width,
       height: height,
       decoration: appBoxShadow(color: color).copyWith(
-          border: Border.all(color: AppColors.primaryFourElementText)),
+        border: Border.all(
+          color: AppColors.primaryFourthElementText,
+        ),
+      ),
       child: Center(
         child: Text(
           title,

@@ -7,9 +7,9 @@ import 'package:vrook_course/common/widgets/app_bar.dart';
 import 'package:vrook_course/common/widgets/app_textfield.dart';
 import 'package:vrook_course/common/widgets/button_widgets.dart';
 import 'package:vrook_course/common/widgets/text_widgets.dart';
-import 'package:vrook_course/pages/sign_in/notifier/login_notifier.dart';
-import 'package:vrook_course/pages/sign_in/sign_in_controller.dart';
-import 'package:vrook_course/pages/sign_in/widgets/sign_in_widgets.dart';
+import 'package:vrook_course/features/sign_in/controllers/sign_in_controller.dart';
+import 'package:vrook_course/features/sign_in/views/widgets/sign_in_widgets.dart';
+import 'package:vrook_course/pages/sign_in/provider/login_notifier.dart';
 
 class SignIn extends ConsumerStatefulWidget {
   const SignIn({super.key});
