@@ -5,6 +5,7 @@ import 'package:vrook_course/common/entities/entities.dart';
 import 'package:vrook_course/common/global_loader/global_loader.dart';
 import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/toast.dart';
+import 'package:vrook_course/features/sign_in/repo/sigin_in_repo.dart';
 import 'package:vrook_course/global.dart';
 import 'package:vrook_course/pages/sign_in/provider/login_notifier.dart';
 
@@ -40,9 +41,14 @@ class LoginController {
     ref.read(appLoaderProvider.notifier).setLoaderValue(true);
 
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailAddress,
-        password: password,
+      // final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      //   email: emailAddress,
+      //   password: password,
+      // );
+
+      final credential = await SignInRepo.firebaseSignIn(
+        emailAddress,
+        password,
       );
       debugPrint("$credential");
 

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vrook_course/common/global_loader/global_loader.dart';
 import 'package:vrook_course/common/widgets/toast.dart';
+import 'package:vrook_course/features/sign_up/repo/sign_up_repo.dart';
 import 'package:vrook_course/pages/sign_up/provider/register_notifier.dart';
 
 class RegisterController {
@@ -44,10 +45,15 @@ class RegisterController {
     var context = Navigator.of(ref.context);
 
     try {
-      final credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailAddress,
-        password: password,
+      // final credential =
+      //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      //   email: emailAddress,
+      //   password: password,
+      // );
+
+      final credential = await SignUpRep.firebaseSignUp(
+        emailAddress,
+        password,
       );
       debugPrint("$credential");
 
