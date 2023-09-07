@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:vrook_course/common/entities/user.dart';
+import 'package:vrook_course/common/models/entities.dart';
 import 'package:vrook_course/common/values/values.dart';
 
 class StorageService {
@@ -24,7 +24,7 @@ class StorageService {
     return await _prefs.setStringList(key, value);
   }
 
-  String getString(String key) {
+  getString(String key) {
     return _prefs.getString(key) ?? '';
   }
 
@@ -52,11 +52,11 @@ class StorageService {
     return _prefs.getString(STORAGE_USER_TOKEN_KEY) == null ? false : true;
   }
 
-  UserItem getUserProfile() {
+  UserProfile getUserProfile() {
     var profileOffline = _prefs.getString(STORAGE_USER_PROFILE_KEY) ?? "";
     if (profileOffline.isNotEmpty) {
-      return UserItem.fromJson(jsonDecode(profileOffline));
+      return UserProfile.fromJson(jsonDecode(profileOffline));
     }
-    return UserItem();
+    return UserProfile();
   }
 }

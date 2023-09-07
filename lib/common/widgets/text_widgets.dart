@@ -4,6 +4,7 @@ import 'package:vrook_course/common/values/values.dart';
 Widget text24Normal({
   required String text,
   Color color = AppColors.primaryText,
+  FontWeight fontWeight = FontWeight.normal,
 }) {
   return Text(
     text,
@@ -11,7 +12,7 @@ Widget text24Normal({
     style: TextStyle(
       color: color,
       fontSize: 24,
-      fontWeight: FontWeight.normal,
+      fontWeight: fontWeight,
     ),
   );
 }

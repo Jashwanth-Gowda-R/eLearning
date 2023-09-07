@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vrook_course/common/utils/image_res.dart';
 import 'package:vrook_course/common/values/values.dart';
+import 'package:vrook_course/features/home/views/home.dart';
 
 var bottomTabs = <BottomNavigationBarItem>[
   BottomNavigationBarItem(
@@ -123,12 +124,13 @@ var bottomTabs = <BottomNavigationBarItem>[
 
 Widget appScreens(int index) {
   List<Widget> screens = [
-    Center(
-      child: Image.asset(
-        ImageRes.home,
-        color: AppColors.primaryElement,
-      ),
-    ),
+    // Center(
+    //   child: Image.asset(
+    //     ImageRes.home,
+    //     color: AppColors.primaryElement,
+    //   ),
+    // ),
+    const Home(),
     Center(
       child: Image.asset(
         ImageRes.search,

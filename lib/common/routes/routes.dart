@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:vrook_course/common/routes/app_route_names.dart';
 import 'package:vrook_course/features/application/views/application.dart';
+import 'package:vrook_course/features/home/views/home.dart';
 import 'package:vrook_course/features/sign_in/views/sign_in.dart';
 import 'package:vrook_course/features/sign_up/views/sign_up.dart';
 import 'package:vrook_course/features/welcome/views/welcome.dart';
@@ -34,10 +35,10 @@ class AppPages {
         path: AppRoutes.Application,
         page: const Application(),
       ),
-      // PageEntity(
-      //   path: AppRoutes.Home,
-      //   page: const Home(),
-      // ),
+      PageEntity(
+        path: AppRoutes.Home,
+        page: const Home(),
+      ),
       // PageEntity(
       //   path: AppRoutes.Course,
       //   page: const Course(),

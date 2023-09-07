@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vrook_course/common/values/values.dart';
-import 'package:vrook_course/common/widgets/app_bar.dart';
 import 'package:vrook_course/features/application/provider/application_nav_notifier.dart';
 import 'package:vrook_course/features/application/views/widgets/widgets.dart';
 
@@ -19,7 +18,6 @@ class _ApplicationState extends ConsumerState<Application> {
   Widget build(BuildContext context) {
     var index = ref.watch(applicationNavIndexProvider);
     return Scaffold(
-      appBar: buildAppBar(title: "Home Page"),
       body: appScreens(index),
       bottomNavigationBar: Container(
         width: 375.w,
