@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/app_bar.dart';
-import 'package:vrook_course/common/widgets/text_widgets.dart';
-import 'package:vrook_course/global.dart';
+import 'package:vrook_course/common/widgets/search_widgets.dart';
+import 'package:vrook_course/features/home/views/widgets/home_widgets.dart';
 
 class Home extends ConsumerStatefulWidget {
   const Home({super.key});
@@ -27,19 +26,12 @@ class _HomeState extends ConsumerState<Home> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                child: text24Normal(
-                  text: 'Hello,',
-                  color: AppColors.primaryThirdElementText,
-                  fontWeight: FontWeight.bold,
-                ),
+              helloText(),
+              userName(),
+              SizedBox(
+                height: 20.h,
               ),
-              Container(
-                child: text24Normal(
-                  text: Global.storageService.getUserProfile().name!,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              const searchBar(),
             ],
           ),
         ),

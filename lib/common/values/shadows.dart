@@ -15,10 +15,12 @@ BoxDecoration appBoxShadow({
   double radius = 15.0,
   sR = 1.0,
   bR = 2.0,
+  BoxBorder? boxBorder,
 }) {
   return BoxDecoration(
     color: color,
     borderRadius: BorderRadius.all(Radius.circular(radius)),
+    border: boxBorder,
     boxShadow: [
       BoxShadow(
         color: Colors.grey.withOpacity(0.1),

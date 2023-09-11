@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vrook_course/common/values/values.dart';
 import 'package:vrook_course/common/widgets/text_widgets.dart';
 
@@ -82,6 +83,61 @@ Widget appTextField({
           ),
         ),
       ],
+    ),
+  );
+}
+
+Widget appTextFieldOnly({
+  required hintText,
+  Function(String)? onChanged,
+  required bool obsText,
+  TextEditingController? controller,
+  double width = 280,
+  double height = 50,
+}) {
+  return SizedBox(
+    width: width.w,
+    height: height.h,
+    child: TextField(
+      controller: controller,
+      keyboardType: TextInputType.multiline,
+      decoration: InputDecoration(
+        hintText: hintText,
+        contentPadding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+        border: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.transparent,
+          ),
+        ),
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.transparent,
+          ),
+        ),
+        disabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.transparent,
+          ),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.transparent,
+          ),
+        ),
+        hintStyle: const TextStyle(
+          color: AppColors.primarySecondaryElementText,
+        ),
+      ),
+      style: const TextStyle(
+        color: AppColors.primaryText,
+        fontFamily: "Avenir",
+        fontWeight: FontWeight.normal,
+        fontSize: 12,
+      ),
+      onChanged: (val) => onChanged!(val),
+      maxLines: 1,
+      autocorrect: false, // 自动纠正
+      obscureText: obsText, // 隐藏输入内容, 密码框
     ),
   );
 }
