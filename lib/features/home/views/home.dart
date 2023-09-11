@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vrook_course/common/widgets/app_bar.dart';
 import 'package:vrook_course/common/widgets/search_widgets.dart';
+import 'package:vrook_course/features/home/controllers/home_controller.dart';
 import 'package:vrook_course/features/home/views/widgets/home_widgets.dart';
 
 class Home extends ConsumerStatefulWidget {
@@ -17,6 +18,9 @@ class _HomeState extends ConsumerState<Home> {
   Widget build(BuildContext context) {
     // String users = Global.storageService.getString(STORAGE_USER_PROFILE_KEY);
     // var userName = jsonDecode(users)['name'];
+    PageController pageController = PageController(
+      initialPage: ref.watch(homeScreenBannerIndexProvider),
+    );
     return Scaffold(
       appBar: buildAppBar(title: "Home"),
       body: Padding(
@@ -32,6 +36,7 @@ class _HomeState extends ConsumerState<Home> {
                 height: 20.h,
               ),
               const searchBar(),
+              bannerSlider(ref: ref, pageController: pageController),
             ],
           ),
         ),
