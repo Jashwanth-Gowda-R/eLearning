@@ -14,13 +14,18 @@ class Home extends ConsumerStatefulWidget {
 }
 
 class _HomeState extends ConsumerState<Home> {
+  late PageController pageController;
+
   @override
-  Widget build(BuildContext context) {
-    // String users = Global.storageService.getString(STORAGE_USER_PROFILE_KEY);
-    // var userName = jsonDecode(users)['name'];
-    PageController pageController = PageController(
+  void didChangeDependencies() {
+    pageController = PageController(
       initialPage: ref.watch(homeScreenBannerIndexProvider),
     );
+    super.didChangeDependencies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(title: "Home"),
       body: Padding(
@@ -30,13 +35,13 @@ class _HomeState extends ConsumerState<Home> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              helloText(),
-              userName(),
+              const HelloText(),
+              const UserName(),
               SizedBox(
                 height: 20.h,
               ),
               const searchBar(),
-              bannerSlider(ref: ref, pageController: pageController),
+              BannerSlider(ref: ref, pageController: pageController),
             ],
           ),
         ),

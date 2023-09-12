@@ -9,7 +9,6 @@ import 'package:vrook_course/common/widgets/text_widgets.dart';
 import 'package:vrook_course/features/sign_up/controllers/sign_up_controller.dart';
 import 'package:vrook_course/features/sign_up/provider/register_notifier.dart';
 
-
 class SignUp extends ConsumerStatefulWidget {
   const SignUp({super.key});
 
@@ -50,8 +49,8 @@ class _SignUpState extends ConsumerState<SignUp> {
                     const SizedBox(
                       height: 30,
                     ),
-                    Center(
-                      child: text14Normal(
+                    const Center(
+                      child: Text14Normal(
                         text: 'Enter Your details below and free sign up',
                       ),
                     ),

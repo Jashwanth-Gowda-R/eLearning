@@ -32,7 +32,7 @@ class AppOnBoardingPage extends StatelessWidget {
           margin: const EdgeInsets.only(
             top: 15,
           ),
-          child: text24Normal(
+          child: Text24Normal(
             text: text1,
           ),
         ),
@@ -41,7 +41,7 @@ class AppOnBoardingPage extends StatelessWidget {
             top: 15,
           ),
           padding: const EdgeInsets.only(left: 30, right: 30),
-          child: text16Normal(
+          child: Text16Normal(
             text: text2,
           ),
         ),

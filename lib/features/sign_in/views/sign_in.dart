@@ -11,7 +11,6 @@ import 'package:vrook_course/features/sign_in/controllers/sign_in_controller.dar
 import 'package:vrook_course/features/sign_in/provider/login_notifier.dart';
 import 'package:vrook_course/features/sign_in/views/widgets/sign_in_widgets.dart';
 
-
 class SignIn extends ConsumerStatefulWidget {
   const SignIn({super.key});
 
@@ -47,9 +46,9 @@ class _SignInState extends ConsumerState<SignIn> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     thirdPartyLogin(),
-                    Center(
+                    const Center(
                       child:
-                          text14Normal(text: 'Or use your email account login'),
+                          Text14Normal(text: 'Or use your email account login'),
                     ),
                     const SizedBox(
                       height: 50,
