@@ -21,13 +21,13 @@ import 'package:vrook_course/common/values/values.dart';
 
 class Text24Normal extends StatelessWidget {
   final String text;
-  final Color color = AppColors.primaryText;
-  final FontWeight fontWeight = FontWeight.normal;
+  final Color color;
+  final FontWeight fontWeight;
   const Text24Normal({
     Key? key,
     required this.text,
-    Color? color,
-    FontWeight? fontWeight,
+    this.color = AppColors.primaryText,
+    this.fontWeight = FontWeight.normal,
   }) : super(key: key);
 
   @override
@@ -46,11 +46,12 @@ class Text24Normal extends StatelessWidget {
 
 class Text16Normal extends StatelessWidget {
   final String text;
-  final Color color = AppColors.primarySecondaryElementText;
+  final Color color;
+
   const Text16Normal({
     Key? key,
     required this.text,
-    Color? color,
+    this.color = AppColors.primarySecondaryElementText,
   }) : super(key: key);
 
   @override
@@ -84,10 +85,11 @@ class Text16Normal extends StatelessWidget {
 
 class Text14Normal extends StatelessWidget {
   final String text;
-  final Color color = AppColors.primaryThirdElementText;
+  final Color color;
   const Text14Normal({
     Key? key,
     required this.text,
+    this.color = AppColors.primaryThirdElementText,
   }) : super(key: key);
 
   @override

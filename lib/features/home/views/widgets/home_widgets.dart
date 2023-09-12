@@ -25,12 +25,10 @@ class HelloText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Text24Normal(
-        text: 'Hello,',
-        color: AppColors.primaryThirdElementText,
-        fontWeight: FontWeight.bold,
-      ),
+    return const Text24Normal(
+      text: 'Hello,',
+      color: AppColors.primaryThirdElementText,
+      fontWeight: FontWeight.bold,
     );
   }
 }
@@ -40,11 +38,9 @@ class UserName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text24Normal(
-        text: Global.storageService.getUserProfile().name!,
-        fontWeight: FontWeight.bold,
-      ),
+    return Text24Normal(
+      text: Global.storageService.getUserProfile().name!,
+      fontWeight: FontWeight.bold,
     );
   }
 }
