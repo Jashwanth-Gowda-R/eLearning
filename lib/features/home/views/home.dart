@@ -46,6 +46,7 @@ class _HomeState extends ConsumerState<Home> {
               ),
               const searchBar(),
               BannerSlider(ref: ref, pageController: pageController),
+              const HomeMenuBar(),
             ],
           ),
         ),

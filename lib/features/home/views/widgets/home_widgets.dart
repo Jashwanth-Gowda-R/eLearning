@@ -174,3 +174,31 @@ Widget bannerContainer({
     ),
   );
 }
+
+class HomeMenuBar extends StatelessWidget {
+  const HomeMenuBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: 15.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          const Text16Normal(
+            text: 'Choice your course',
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+          GestureDetector(
+            onTap: () {},
+            child: const Text10Normal(
+              text: 'See All',
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}

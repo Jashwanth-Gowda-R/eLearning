@@ -47,11 +47,12 @@ class Text24Normal extends StatelessWidget {
 class Text16Normal extends StatelessWidget {
   final String text;
   final Color color;
-
+  final FontWeight fontWeight;
   const Text16Normal({
     Key? key,
     required this.text,
     this.color = AppColors.primarySecondaryElementText,
+    this.fontWeight = FontWeight.normal,
   }) : super(key: key);
 
   @override
@@ -62,7 +63,7 @@ class Text16Normal extends StatelessWidget {
       style: TextStyle(
         color: color,
         fontSize: 16,
-        fontWeight: FontWeight.normal,
+        fontWeight: fontWeight,
       ),
     );
   }
@@ -139,4 +140,27 @@ Widget textUnderline({
       ),
     ),
   );
+}
+
+class Text10Normal extends StatelessWidget {
+  final String text;
+  final Color color;
+  const Text10Normal({
+    Key? key,
+    required this.text,
+    this.color = AppColors.primaryThirdElementText,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color: color,
+        fontSize: 10,
+        fontWeight: FontWeight.normal,
+      ),
+    );
+  }
 }
