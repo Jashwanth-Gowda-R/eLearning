@@ -180,25 +180,66 @@ class HomeMenuBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 15.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          const Text16Normal(
-            text: 'Choice your course',
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.only(top: 15.h),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              const Text16Normal(
+                text: 'Choice your course',
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: const Text10Normal(
+                  text: 'See All',
+                ),
+              ),
+            ],
           ),
-          GestureDetector(
-            onTap: () {},
-            child: const Text10Normal(
-              text: 'See All',
-            ),
-          )
-        ],
-      ),
+        ),
+        // course item btn
+        Container(
+          margin: EdgeInsets.only(top: 20.h),
+          child: Row(
+            children: [
+              Container(
+                padding: EdgeInsets.only(
+                    left: 15.w, right: 15.w, top: 5.w, bottom: 5.w),
+                decoration: appBoxShadow(
+                  color: AppColors.primaryElement,
+                  radius: 7.w,
+                ),
+                child: const Text11Normal(
+                  text: 'All',
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(
+                  left: 30.w,
+                ),
+                child: const Text11Normal(
+                  text: 'Popular',
+                  color: AppColors.primaryThirdElementText,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(
+                  left: 30.w,
+                ),
+                child: const Text11Normal(
+                  text: 'Newest',
+                  color: AppColors.primaryThirdElementText,
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }

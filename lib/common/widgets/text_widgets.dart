@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:vrook_course/common/values/values.dart';
 
@@ -37,7 +38,7 @@ class Text24Normal extends StatelessWidget {
       textAlign: TextAlign.center,
       style: TextStyle(
         color: color,
-        fontSize: 24,
+        fontSize: 24.sp,
         fontWeight: fontWeight,
       ),
     );
@@ -62,7 +63,7 @@ class Text16Normal extends StatelessWidget {
       textAlign: TextAlign.center,
       style: TextStyle(
         color: color,
-        fontSize: 16,
+        fontSize: 16.sp,
         fontWeight: fontWeight,
       ),
     );
@@ -100,7 +101,7 @@ class Text14Normal extends StatelessWidget {
       textAlign: TextAlign.center,
       style: TextStyle(
         color: color,
-        fontSize: 14,
+        fontSize: 14.sp,
         fontWeight: FontWeight.normal,
       ),
     );
@@ -133,7 +134,7 @@ Widget textUnderline({
       textAlign: TextAlign.center,
       style: TextStyle(
         color: color,
-        fontSize: 14,
+        fontSize: 14.sp,
         fontWeight: FontWeight.normal,
         decoration: TextDecoration.underline,
         decorationColor: AppColors.primaryText,
@@ -158,7 +159,30 @@ class Text10Normal extends StatelessWidget {
       textAlign: TextAlign.center,
       style: TextStyle(
         color: color,
-        fontSize: 10,
+        fontSize: 10.sp,
+        fontWeight: FontWeight.normal,
+      ),
+    );
+  }
+}
+
+class Text11Normal extends StatelessWidget {
+  final String text;
+  final Color color;
+  const Text11Normal({
+    Key? key,
+    required this.text,
+    this.color = AppColors.primaryThirdElementText,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color: color,
+        fontSize: 11.sp,
         fontWeight: FontWeight.normal,
       ),
     );
