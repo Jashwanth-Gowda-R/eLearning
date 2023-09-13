@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:vrook_course/common/utils/image_res.dart';
 import 'package:vrook_course/common/values/values.dart';
+import 'package:vrook_course/common/widgets/image_widgets.dart';
 import 'package:vrook_course/common/widgets/text_widgets.dart';
 import 'package:vrook_course/features/home/controllers/home_controller.dart';
 import 'package:vrook_course/global.dart';
@@ -240,6 +241,29 @@ class HomeMenuBar extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+}
+
+class CourseGrid extends StatelessWidget {
+  const CourseGrid({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: GridView.builder(
+        shrinkWrap: true,
+        physics: const ScrollPhysics(),
+        itemCount: 6,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+        ),
+        itemBuilder: (context, index) {
+          return appImage();
+        },
+      ),
     );
   }
 }
